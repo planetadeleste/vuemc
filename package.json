@@ -1,6 +1,6 @@
 {
   "name": "@dario-peercode/vue-mc",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Models and Collections for Vue.js. Maintained version.",
   "license": "MIT",
   "main": "vue-mc.js",
