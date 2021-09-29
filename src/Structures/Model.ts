@@ -1214,10 +1214,7 @@ export default Model;
 interface ModelOptions extends Options {
     [key: string]: any;
 
-    methods?: {
-        [key: string]: HttpMethods;
-
-    };
+    methods?: Partial<Record<string, HttpMethods>>;
 
     /**
      * The attribute that should be used to uniquely identify this model.
