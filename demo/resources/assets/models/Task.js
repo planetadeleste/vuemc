@@ -1,5 +1,5 @@
-import { Model } from 'vue-mc'
-import { required, length } from 'vue-mc/validation'
+import { Model } from '@dario-peercode/vue-mc'
+import { required, length } from '@dario-peercode/vue-mc/validation'
 
 export default class Task extends Model {
 

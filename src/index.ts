@@ -7,15 +7,16 @@
  */
 import Model      from './Structures/Model'
 import Collection from './Structures/Collection'
+import Request    from './HTTP/Request'
+import Response   from './HTTP/Response'
 
-export { Model, Collection }
+export { Model, Collection, Request, Response }
 
 export {Mutation, AttributesValidationErrors, ValidationResultError, ValidationResult, ValidationTask} from './Structures/Model';
 export {Predicate} from './Structures/Collection';
 export * from './HTTP/Response';
 export * from './HTTP/BaseResponse';
 export * from './HTTP/ProxyResponse';
-export * from './HTTP/Request';
 export * from './Errors/ResponseError';
 export * from './Errors/RequestError';
 export * from './Errors/ValidationError';

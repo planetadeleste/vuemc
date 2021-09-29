@@ -1,4 +1,4 @@
-import { Collection } from 'vue-mc'
+import { Collection } from '@dario-peercode/vue-mc'
 import Task from '../models/Task'
 import _ from 'lodash'
 

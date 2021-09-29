@@ -1,6 +1,6 @@
 {
   "name": "@dario-peercode/vue-mc",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Models and Collections for Vue.js. Maintained version.",
   "license": "MIT",
   "main": "vue-mc.js",
@@ -31,7 +31,7 @@
   },
   "author": "Rudi Theunissen <rudi.theunissen@figured.com> (https://github.com/rtheunissen)",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "date-fns": "^2.0.0-beta.4",
     "lodash": "^4.17.15",
     "validator": "^10.9.0",
