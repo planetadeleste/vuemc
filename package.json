@@ -1,5 +1,5 @@
 {
-    "name": "vue-mc",
+    "name": "@dario-peercode/vue-mc",
     "version": "0.6.1",
     "description": "",
     "license": "MIT",
@@ -22,12 +22,12 @@
     ],
     "types": "src/index.d.ts",
     "bugs": {
-        "url": "https://github.com/FiguredLimited/vue-mc/issues"
+        "url": "https://github.com/dario-peercode/vue-mc/issues"
     },
-    "homepage": "https://github.com/FiguredLimited/vue-mc",
+    "homepage": "https://github.com/dario-peercode/vue-mc",
     "repository": {
         "type": "git",
-        "url": "https://github.com/FiguredLimited/vue-mc.git"
+        "url": "https://github.com/dario-peercode/vue-mc.git"
     },
     "author": {
         "name": "Rudi Theunissen",
