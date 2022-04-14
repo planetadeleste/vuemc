@@ -1,10 +1,10 @@
 {
-  "name": "@dario-peercode/vue-mc",
-  "version": "0.6.3",
-  "description": "Models and Collections for Vue.js. Maintained version.",
+  "name": "@planetadeleste/vuemc",
+  "version": "1.0.0",
+  "description": "Models and Collections for Vue 3. Maintained version.",
   "license": "MIT",
-  "main": "vue-mc.js",
-  "module": "vue-mc.es.js",
+  "main": "dist/vue-mc.js",
+  "module": "dist/vue-mc.es.js",
   "keywords": [
     "vue",
     "collection",
@@ -16,26 +16,25 @@
     "validation"
   ],
   "files": [
-    "validation",
-    "vue-mc.js",
-    "vue-mc.es.js"
+    "dist",
+    "src/vuemc.d.ts"
   ],
-  "types": "src/index.d.ts",
+  "types": "src/vuemc.d.ts",
   "bugs": {
-    "url": "https://github.com/dario-peercode/vue-mc/issues"
+    "url": "https://github.com/planetadeleste/vuemc/issues"
   },
-  "homepage": "https://github.com/dario-peercode/vue-mc",
+  "homepage": "https://github.com/planetadeleste/vuemc",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dario-peercode/vue-mc.git"
+    "url": "git+https://github.com/planetadeleste/vuemc.git"
   },
   "author": "Rudi Theunissen <rudi.theunissen@figured.com> (https://github.com/rtheunissen)",
   "dependencies": {
-    "axios": "^0.21.4",
-    "date-fns": "^2.0.0-beta.4",
+    "axios": "^0.26.1",
+    "date-fns": "^2.28.0",
     "lodash": "^4.17.15",
     "validator": "^10.9.0",
-    "vue": "^2.5.17"
+    "vue": "^3.2.31"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -53,18 +52,23 @@
     "babel-plugin-istanbul": "^5.1.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
-    "eslint": "^5.0.0",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "mocha": "^6.2.0",
     "moxios": "^0.4.0",
     "nyc": "^14.1.1",
-    "rollup": "^1.19.2",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-commonjs": "^10.0.2",
+    "prettier": "^2.6.2",
+    "prettier-plugin-jsdoc": "^0.3.36",
+    "rollup": "^2.70.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-typescript2": "^0.31.2",
     "source-map-support": "^0.5.9",
     "ts-node": "^8.0.2",
-    "typescript": "^3.6.4"
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.3"
   },
   "scripts": {
     "build": "rollup -c",
