@@ -75,7 +75,8 @@
     "lint": "eslint ./src/**/*.ts",
     "test": "tsc && nyc mocha",
     "docs": "cd docs && jekyll serve",
-    "prepublishOnly": "yarn test && yarn build"
+    "clean": "rimraf ./dist ./src/*/*.map ./src/*/*.js",
+    "prepublish-Only": "yarn test && yarn build"
   },
   "nyc": {
     "require": [
