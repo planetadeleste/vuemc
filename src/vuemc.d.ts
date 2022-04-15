@@ -1,8 +1,8 @@
-import { AxiosError, AxiosRequestConfig, AxiosResponse, Method } from 'axios';
-import { Ref } from 'vue';
-import { Model, Rule } from '.';
-
 declare module '@planetadeleste/vuemc' {
+  import { AxiosError, AxiosRequestConfig, AxiosResponse, Method } from 'axios';
+  import { Ref } from 'vue';
+  import { Rule } from '@planetadeleste/vuemc/validation';
+
   /** Base model class. */
   export class Model<
     A extends Record<string, any> = Record<string, any>
@@ -1305,25 +1305,21 @@ declare module '@planetadeleste/vuemc' {
     getValidationErrors(): unknown;
   }
 
-  export class ProxyResponse {
-    data: Record<string, any>;
+  export class ProxyResponse<T = Record<string, any>> {
+    data: T;
     headers: Record<string, any>;
     status: number;
-    constructor(
-      status: number,
-      data?: Record<string, any>,
-      headers?: Record<string, any>
-    );
-    getData(): Record<string, any>;
+    constructor(status: number, data?: T, headers?: Record<string, any>);
+    getData(): T;
     getStatus(): number;
     getHeaders(): Record<string, any>;
     getValidationErrors(): Record<string, any>;
   }
 
-  export class Response {
+  export class Response<T = any | null | Record<string, any>> {
     response?: AxiosResponse;
     constructor(response?: AxiosResponse);
-    getData(): any | null;
+    getData(): T;
     getStatus(): number;
     getHeaders(): any;
     getValidationErrors(): Record<string, any> | null;
@@ -1430,6 +1426,8 @@ declare module '@planetadeleste/vuemc' {
 }
 
 declare module '@planetadeleste/vuemc/validation' {
+  import { Model } from '@planetadeleste/vuemc';
+
   class GlobalMessages {
     $locale: string;
     $fallback: string;

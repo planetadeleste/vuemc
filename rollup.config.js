@@ -5,12 +5,23 @@ import pkg from './package.json';
 import typescript from 'typescript';
 import ts_plugin2 from 'rollup-plugin-typescript2';
 
+const moduleName = pkg.name.replace(/^@.*\//, "");
+const author = pkg.author;
+const banner = `
+  /**
+   * @license
+   * @author ${author}
+   * @version v${pkg.version}
+   * ${moduleName}.js v${pkg.version}
+   * Released under the ${pkg.license} license.
+   */
+`;
+const arExternals = [
+  ...Object.keys(pkg.dependencies || {}),
+];
+
 const BASE = {
-    external: [
-        'lodash',
-        'vue',
-        'axios',
-    ],
+    external: arExternals,
     plugins: [
         resolve(),
         commonjs(),
@@ -24,22 +35,22 @@ const BASE = {
 const MAIN = _.assign({}, BASE, {
     input: 'src/index.ts',
     output: [
-        {file: pkg.main, format: 'cjs'},
-        {file: pkg.module, format: 'es'},
+        {file: pkg.main, format: 'cjs', banner },
+        {file: pkg.module, format: 'es', banner },
     ],
 });
 
 const VALIDATION = _.assign({}, BASE, {
     input: 'src/Validation/index.ts',
     output: [
-        {file: 'dist/validation/index.js', format: 'cjs'},
+        {file: 'validation/index.js', format: 'cjs'},
     ],
 });
 
 const LOCALES = _.assign({}, BASE, {
     input: './src/Validation/locale.ts',
     output: [
-        {file: 'dist/validation/locale.js', format: 'cjs'},
+        {file: 'validation/locale.js', format: 'cjs'},
     ],
 });
 
