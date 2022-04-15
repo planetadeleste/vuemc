@@ -1,6 +1,6 @@
 {
   "name": "@planetadeleste/vuemc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Models and Collections for Vue 3. Maintained version.",
   "license": "MIT",
   "main": "dist/vue-mc.js",
@@ -19,7 +19,8 @@
   "files": [
     "dist",
     "validation",
-    "src/vuemc.d.ts"
+    "src/vuemc.d.ts",
+    "src/validation.d.ts"
   ],
   "bugs": {
     "url": "https://github.com/planetadeleste/vuemc/issues"
@@ -76,7 +77,7 @@
     "lint": "eslint ./src/**/*.ts",
     "test": "tsc && nyc mocha",
     "docs": "cd docs && jekyll serve",
-    "clean": "rimraf ./dist ./src/*/*.map ./src/*/*.js",
+    "clean": "rimraf ./dist ./validation ./src/*/*.map ./src/*/*.js",
     "prepublish-Only": "yarn test && yarn build"
   },
   "nyc": {
