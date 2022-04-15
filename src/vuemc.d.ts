@@ -442,7 +442,7 @@ declare module '@planetadeleste/vuemc' {
     get attributes(): Record<string, any>;
 
     get models(): A[];
-    set models(arModels: Model[]);
+    set models(arModels: A[]);
 
     get loading(): boolean;
     set loading(bVal: boolean);
@@ -465,7 +465,7 @@ declare module '@planetadeleste/vuemc' {
     clone(): Collection;
 
     /** @returns {A} The class/constructor for this collection's model type. */
-    model(): A;
+    model(): typeof Model;
 
     /** @returns {Object} Default attributes */
     defaults(): Record<string, any>;
