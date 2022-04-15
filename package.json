@@ -1,10 +1,11 @@
 {
   "name": "@planetadeleste/vuemc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Models and Collections for Vue 3. Maintained version.",
   "license": "MIT",
   "main": "dist/vue-mc.js",
   "module": "dist/vue-mc.es.js",
+  "types": "src/vuemc.d.ts",
   "keywords": [
     "vue",
     "collection",
@@ -17,9 +18,9 @@
   ],
   "files": [
     "dist",
+    "validation",
     "src/vuemc.d.ts"
   ],
-  "types": "src/vuemc.d.ts",
   "bugs": {
     "url": "https://github.com/planetadeleste/vuemc/issues"
   },
