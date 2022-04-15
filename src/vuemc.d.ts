@@ -464,8 +464,8 @@ declare module '@planetadeleste/vuemc' {
      */
     clone(): Collection;
 
-    /** @returns {A} The class/constructor for this collection's model type. */
-    model(): typeof Model;
+    /** @returns {typeof A} The class/constructor for this collection's model type. */
+    model(ACtor: { new (...args: any[]): A }): typeof ACtor;
 
     /** @returns {Object} Default attributes */
     defaults(): Record<string, any>;
