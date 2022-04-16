@@ -77,6 +77,11 @@ class Collection extends Base {
   ) {
     super(options);
 
+    this._loading = ref(false);
+    this._saving = ref(false);
+    this._deleting = ref(false);
+    this._fatal = ref(false);
+
     this._models = ref([]);
     this._attributes = ref({});
     this._registry = ref({});
