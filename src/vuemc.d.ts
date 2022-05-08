@@ -13,7 +13,7 @@ declare module '@planetadeleste/vuemc' {
     private readonly _saving: Ref<boolean>;
     private readonly _deleting: Ref<boolean>;
     private readonly _fatal: Ref<boolean>;
-    private readonly _attributes: Ref<A>;
+    private readonly _attributes: Ref<Partial<A>>;
     private readonly _collections: Ref<Record<string, Collection>>;
     private readonly _reference: Ref<Record<string, any>>;
     private readonly _mutations: Ref<Record<string, Mutation>>;
@@ -30,7 +30,7 @@ declare module '@planetadeleste/vuemc' {
     get $(): Record<string, any>;
 
     /** @returns {Object} This model's "active" state attributes. */
-    get attributes(): A | Record<string, any>;
+    get attributes(): Partial<A> | Record<string, any>;
 
     /** @returns {Object} The collection that this model is registered to. */
     get collections(): Collection[];
@@ -65,7 +65,7 @@ declare module '@planetadeleste/vuemc' {
      *
      * @returns {Model}
      */
-    clone(): Model<A>;
+    clone<T extends Model<A>>(): T;
 
     /**
      * Prepare certain methods to only be called once. These are methods that
@@ -82,7 +82,7 @@ declare module '@planetadeleste/vuemc' {
      * @returns {Object} An empty representation of this model. It's important
      *   that all model attributes have a default value in order to be reactive in Vue.
      */
-    defaults(): Record<string, any>;
+    defaults(): Partial<A>;
 
     /** @returns {Object} Attribute mutations keyed by attribute name. */
     mutations(): Record<string, Mutation | Mutation[]>;
@@ -147,7 +147,7 @@ declare module '@planetadeleste/vuemc' {
      * @param {Object} attributes
      * @returns {Object} The attributes that were assigned to the model.
      */
-    assign(attributes: A | Record<string, any>): void;
+    assign(attributes: Partial<A>): void;
 
     /**
      * Resets all attributes back to their reference values (source of truth). A
@@ -202,6 +202,7 @@ declare module '@planetadeleste/vuemc' {
       attribute: keyof A | string | A | Record<string, any>,
       value?: T
     ): T | undefined;
+
     /**
      * Reverts all attributes back to their defaults, or `undefined` if a
      * default value is not defined.
@@ -211,6 +212,7 @@ declare module '@planetadeleste/vuemc' {
      * @param {string | string[]} attribute
      */
     unset(attribute: string | string[]): void;
+
     /**
      * Similar to `saved`, returns an attribute's value or a fallback value if
      * this model doesn't have the attribute.
@@ -220,6 +222,7 @@ declare module '@planetadeleste/vuemc' {
      * @returns {any} The value of the attribute or `fallback` if not found.
      */
     get(attribute: string, fallback?: any): any;
+
     /**
      * Similar to `get`, but accesses the saved attributes instead.
      *
@@ -233,6 +236,7 @@ declare module '@planetadeleste/vuemc' {
      * @returns {any} The value of the attribute or `fallback` if not found.
      */
     saved(attribute: string, fallback?: any): any;
+
     /**
      * Determines if the model has an attribute.
      *
@@ -241,8 +245,10 @@ declare module '@planetadeleste/vuemc' {
      *   return true if the object exists but is undefined.
      */
     has(attribute: string): boolean;
+
     /** @returns {Array} */
     getValidateRules(attribute: string): Rule[];
+
     /**
      * Validates a specific attribute of this model, and sets errors for it.
      *
@@ -251,6 +257,7 @@ declare module '@planetadeleste/vuemc' {
     validateAttribute(
       attribute: string
     ): Promise<ValidationResultErrorFinalResult>;
+
     /**
      * Validates all attributes.
      *
@@ -260,15 +267,19 @@ declare module '@planetadeleste/vuemc' {
     validate(
       attributes?: string | string[]
     ): Promise<ValidationResultErrorFinalResult>;
+
     /**
      * @returns {Object} A native representation of this model that will
      *   determine the contents of JSON.stringify(model).
      */
-    toJSON(): A | Record<string, any>;
+    toJSON(): Partial<A> | Record<string, any>;
+
     /** Adds this model to all registered collections. */
     addToAllCollections(): void;
+
     /** Removes this model from all registered collections. */
     removeFromAllCollections(): void;
+
     /**
      * Returns an array of attribute names that have changed, or `false` if no
      * changes have been made since the last time this model was synced.
@@ -277,24 +288,32 @@ declare module '@planetadeleste/vuemc' {
      *   `false` if no attributes have changed since the last sync.
      */
     changed(): string[] | false;
+
     /** Called when a fetch request was successful. */
     onFetchSuccess(response: Response): void;
+
     /**
      * Called when a fetch request failed.
      *
      * @param {Error} error
      */
     onFetchFailure(error: any): void;
+
     /** @returns {string} The key to use when generating the `patch` URL. */
     getPatchRoute(): Method;
+
     /** @returns {string} The key to use when generating the `create` URL. */
     getCreateRoute(): Method;
+
     /** @returns {string} The key to use when generating the `update` URL. */
     getUpdateRoute(): Method;
+
     /** @returns {string} The method to use when making an update request. */
     getUpdateMethod(): Method;
+
     /** @returns {string} The method to use when making an save request. */
     getSaveMethod(): Method;
+
     /** @inheritDoc */
     getSaveRoute(): Method;
     /**
@@ -462,7 +481,7 @@ declare module '@planetadeleste/vuemc' {
      *
      * @returns {Collection}
      */
-    clone(): Collection;
+    clone<T extends Collection>(): T;
 
     /** @returns {typeof A} The class/constructor for this collection's model type. */
     model(ACtor: { new (...args: any[]): A }): typeof ACtor;
