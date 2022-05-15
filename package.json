@@ -1,6 +1,6 @@
 {
   "name": "@planetadeleste/vuemc",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Models and Collections for Vue 3. Maintained version.",
   "license": "MIT",
   "main": "dist/vue-mc.js",
