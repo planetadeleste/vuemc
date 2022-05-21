@@ -18,6 +18,7 @@ import {
   flow,
   get,
   has,
+  hasIn,
   head,
   invert,
   isArray,
@@ -567,7 +568,8 @@ class Model<A extends Record<string, any> = Record<string, any>> extends Base {
       return;
     }
 
-    let defined: boolean = this.has(attribute as string);
+    let defined: boolean =
+      this.has(attribute as string) || hasIn(this, attribute as string);
 
     // Only register the pass-through property if it's not already set up.
     // If it already exists on the instance, we know it has been.
@@ -951,7 +953,7 @@ class Model<A extends Record<string, any> = Record<string, any>> extends Base {
       // It's not a requirement to respond with a complete dataset,
       // eg. a response to a patch request might return partial data.
     } else if (isPlainObject(data)) {
-      this.assign(defaults({}, data, this._attributes));
+      this.assign(defaults({}, data, this._attributes.value));
 
       // There is some data, but it's not an object, so we can assume that the
       // response only returned an identifier for this model.

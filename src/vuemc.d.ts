@@ -54,7 +54,7 @@ declare module '@planetadeleste/vuemc' {
      * @param {Object} [options] Options to set on the model.
      */
     constructor(
-      attributes?: Record<string, any>,
+      attributes?: Partial<A>,
       collection?: Collection | null,
       options?: Record<string, any>
     );
@@ -221,7 +221,7 @@ declare module '@planetadeleste/vuemc' {
      * @param {any} fallback
      * @returns {any} The value of the attribute or `fallback` if not found.
      */
-    get(attribute: string, fallback?: any): any;
+    get(attribute: keyof A | string, fallback?: any): any;
 
     /**
      * Similar to `get`, but accesses the saved attributes instead.
@@ -235,7 +235,7 @@ declare module '@planetadeleste/vuemc' {
      * @param {any} fallback
      * @returns {any} The value of the attribute or `fallback` if not found.
      */
-    saved(attribute: string, fallback?: any): any;
+    saved(attribute: keyof A | string, fallback?: any): any;
 
     /**
      * Determines if the model has an attribute.
@@ -244,7 +244,7 @@ declare module '@planetadeleste/vuemc' {
      * @returns {boolean} `true` if an attribute exists, `false` otherwise. Will
      *   return true if the object exists but is undefined.
      */
-    has(attribute: string): boolean;
+    has(attribute: keyof A | string): boolean;
 
     /** @returns {Array} */
     getValidateRules(attribute: string): Rule[];
