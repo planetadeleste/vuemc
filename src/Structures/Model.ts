@@ -830,6 +830,10 @@ class Model<A extends Record<string, any> = Record<string, any>> extends Base {
       throw this.createResponseError('No data in fetch response', response);
     }
 
+    if (has(attributes, 'data') && isPlainObject(attributes.data) && keys(attributes).length === 1) {
+      attributes = attributes.data;
+    }
+
     this.assign(attributes as Record<string, any>);
 
     this._fatal.value = false;
