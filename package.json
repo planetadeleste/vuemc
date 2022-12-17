@@ -3,8 +3,8 @@
   "version": "1.0.11",
   "description": "Models and Collections for Vue 3. Maintained version.",
   "license": "MIT",
-  "main": "dist/vue-mc.js",
-  "module": "dist/vue-mc.es.js",
+  "main": "dist/vuemc.js",
+  "module": "dist/vuemc.es.js",
   "types": "src/vuemc.d.ts",
   "keywords": [
     "vue",
