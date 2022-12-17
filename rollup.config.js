@@ -1,9 +1,9 @@
 import * as _ from 'lodash';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
 import pkg from './package.json';
 import typescript from 'typescript';
 import ts_plugin2 from 'rollup-plugin-typescript2';
+import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
 
 const moduleName = pkg.name.replace(/^@.*\//, "");
 const author = pkg.author;

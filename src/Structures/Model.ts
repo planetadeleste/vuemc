@@ -229,7 +229,7 @@ class Model<A extends Record<string, any> = Record<string, any>> extends Base {
     copyFrom(this._reference.value, reference);
 
     // Create a copy.
-    let clone: Model = new (this.constructor as typeof Model)();
+    let clone: Model<A> = new (this.constructor as typeof Model)();
 
     // Make sure that the clone belongs to the same collections.
     clone.registerCollection(this.collections);

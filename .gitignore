@@ -6,6 +6,7 @@
 /package-lock.json
 /vendor
 .rpt2_cache/
+.npmrc
 
 # Compiled files
 /validation
