@@ -209,7 +209,7 @@ declare module '@planetadeleste/vuemc' {
          * @returns {any} The value that was set.
          */
         set<T = any>(
-            attribute: ModelAttr<A> | A,
+            attribute: ModelAttr<A> | A | Partial<A>,
             value?: T
         ): T | undefined;
 
@@ -231,7 +231,7 @@ declare module '@planetadeleste/vuemc' {
          * @param {any} fallback
          * @returns {any} The value of the attribute or `fallback` if not found.
          */
-        get(attribute: ModelAttr<A>, fallback?: any): any;
+        get<T = any>(attribute: ModelAttr<A>, fallback?: T): T;
 
         /**
          * Similar to `get`, but accesses the saved attributes instead.
